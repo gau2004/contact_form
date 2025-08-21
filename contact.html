@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <style>
+    body { font-family: Arial; margin: 40px; background: #f9f9f9; }
+    h2 { color: #333; }
+    form { margin-bottom: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    input, textarea { display: block; margin: 10px 0; padding: 8px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 8px 15px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    ul { list-style: none; padding: 0; }
+    li { background: #fff; padding: 10px; margin: 5px 0; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    li b { color: #007BFF; }
+    .clear-btn { background: red; margin-top: 10px; }
+    .clear-btn:hover { background: darkred; }
+  </style>
+</head>
+<body>
+  <h2>Contact Form</h2>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <form method="POST">
+    <button type="submit" name="clear" class="clear-btn">Clear All Messages</button>
+  </form>
+
+  <h3>Messages</h3>
+  <ul>
+    {% for m in messages %}
+      <li><b>{{ m.name }}</b>: {{ m.message }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
